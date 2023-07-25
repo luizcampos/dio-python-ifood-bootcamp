@@ -13,7 +13,7 @@ city, state = "Guará", "SP"
 
 print(name, age, city, state)
 
-BR_STATES =  ["SP", "MG", "RJ"]
+BR_STATES =  ["SP", "MG", "RJ"] ##Constante - convenção ser em maiúsculo
 
 print(BR_STATES)
 
