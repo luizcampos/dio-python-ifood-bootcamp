@@ -42,7 +42,7 @@ print((num1 > 10) and (num2 > 0))
 
 print(not num1 > 10) ## negação
 
-## Identidade
+## Identidade a
 
 nome = "Luiz"
 nome2 = nome
