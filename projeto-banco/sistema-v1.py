@@ -1,11 +1,7 @@
 
 saldo, deposito, saque, saques_dia  = 0, 0, 0, 0
 LIMITE_SAQUES = 3
-extrato = """
-======================
-=  EXTRATO COMPLETO  =
-======================
-"""
+extrato = ""
 menu = f"""
 ======================
 =        MENU        =
@@ -26,7 +22,7 @@ while True:
             print("Por favor, digite um valor válido!")
         else:
             saldo += deposito
-            extrato += f"""\n\nDepósito: +R${deposito}\nSaldo =    R${saldo}"""
+            extrato += f"""\nDepósito: +R${deposito:.2f}\nSaldo =    R${saldo:.2f}"""
             print(f"Seu depósito de R${deposito} foi realizado com sucesso.")
 
     elif opcao == "2":
@@ -41,14 +37,15 @@ while True:
                 print("Limite do saque atual: R$500.\nDigite um novo valor!\n")
             else:
                 saldo -= saque
-                extrato += f"""\n\nSaque: -R${saque}\nSaldo = R${saldo}"""
+                extrato += f"""\nSaque: -R${saque:.2f}\nSaldo = R${saldo:.2f}"""
                 saques_dia+=1
                 print(f"Seu saque de R${saque} foi realizado com sucesso.\nVocê pode sacar mais {LIMITE_SAQUES-saques_dia} hoje ainda.")
         else:
             print(f"Limite de saque diário excedido.")
 
     elif opcao == "3":
-        print(extrato)
+        print("\n======================\n=  EXTRATO COMPLETO  =\n======================")
+        print("  Sem movimentações." if not extrato else extrato)
 
     elif opcao == "0":
         print("Sistema encerrado. Obrigado!")
