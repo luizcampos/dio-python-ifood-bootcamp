@@ -13,7 +13,43 @@ for num in numeros:
 
 # MÉTODOS
 
-conjuntoA = {1, 2}
-conjuntoB = {3, 4}
+conjuntoA = {1, 2, 3}
+conjuntoB = {3, 4, 5}
 
 print(conjuntoA.union(conjuntoB))
+
+print(conjuntoA.intersection(conjuntoB))
+
+print(conjuntoA.difference(conjuntoB))
+
+print(conjuntoA.symmetric_difference(conjuntoB))
+
+print(conjuntoA.issubset(conjuntoB))
+
+print(conjuntoA.issuperset(conjuntoB))
+
+print(conjuntoA.isdisjoint(conjuntoB))
+
+conjuntoA.add(15)
+print(conjuntoA)
+
+conjuntoC = conjuntoA.copy()
+print(conjuntoC)
+
+
+print(conjuntoC.pop())
+print(conjuntoC)
+
+conjuntoC.discard(15)
+print(conjuntoC)
+
+print(len(conjuntoC))
+
+print(conjuntoC.clear())
+print(conjuntoC) #vazio - empty
+
+
+
+
+
+
