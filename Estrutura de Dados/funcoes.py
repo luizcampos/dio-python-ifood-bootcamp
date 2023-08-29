@@ -106,3 +106,9 @@ def salario_calc(bonus):
 	return salario
 
 print(f"Salário final: R$ {salario_calc(500)}")
+
+
+def criar_carro(ano, modelo, placa, /, *, marca):
+	print(ano, modelo, placa, marca)
+
+criar_carro(1999, "Palio", "EUS9876", marca="Fiat")
