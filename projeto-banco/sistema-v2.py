@@ -138,34 +138,6 @@ def criar_conta_corrente():
     
     contas[qtde+1]["conta"] = int(contas[qtde]["conta"])+1
 
-    #sucesso = False
-    #contaExist = True
-
-    # while sucesso == False:
-    #     conta = str(input("Digite o número da conta: "))
-
-    #     if conta != "":
-    #         #verificar se conta existe
-    #         for chave, valor in usuarios.items():
-    #             print(chave, contas[chave]["conta"], conta)
-    #             if contas[chave]["conta"] == conta:
-    #                     print("Conta já existe! Tente novamente")
-    #                     break
-    #             else:
-    #                 contaExist = False
-            
-    #         if contaExist == False:
-    #             try:
-    #                 int(conta) #só numeros?
-    #             except ValueError as e:
-    #                 print("Número da conta inválida!")
-    #             else:
-    #                 contas[qtde+1]["conta"] = conta
-    #                 sucesso = True  #é só num, converteu pra int
-    #                 break
-    #     else:
-    #         print("Número da conta inválida!")
-
 def excluir_cliente():
 
     global usuarios
@@ -243,4 +215,3 @@ while True:
     else:
         print("Opção inválida!")
         continue
-
