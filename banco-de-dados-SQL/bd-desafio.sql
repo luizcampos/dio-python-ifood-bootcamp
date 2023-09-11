@@ -122,3 +122,83 @@ create table productSupplier(
 desc productSupplier;
 
 show tables;
+
+alter table client auto_increment=1;
+alter table product auto_increment=1;
+alter table orders auto_increment=1;
+alter table seller auto_increment=1;
+alter table supplier auto_increment=1;
+
+insert into Client (Fname, Minit, Lname, CPF, Address)
+		values('Maria', 'M', 'Silva', 123456789, 'Rua Silva 29, Caran - Flores'),
+			('Fellipe', 'O', 'Pimentel', 987654321, 'Rua Ala 289, Centro - Flores'),
+            ('Roberta', 'G', 'Assis', 147258369, 'Rua Laras 833, Centro - Flores'),
+            ('Ricado', 'F', 'Silva', 963258741, 'Avenida JK 19, Clara - SP');
+
+insert into product (Pname, classification_kids, category, avaliacao, size) values
+	('Fone', false, 'Eletrônico', '4', null),
+    ('Barbie', true, 'Brinquedos', '3', null),
+    ('Sofá', false, 'Móveis', '3', '3x57x80'),
+    ('Farinha', false, 'Alimentos', '2', null);
+    
+insert into orders (idOrderClient, orderStatus, orderDescription, sendValue, paymentCash) values
+	(13, default, 'compra via app', null,1),
+    (14, default, 'compra via app', 50, 0),
+    (15, 'Confirmado', null, null, 1),
+    (16, default, 'compra via web site', 150, 0);
+
+select * from client;
+select * from orders;
+select * from product;
+
+insert into productOrder (idPOproduct, idPOorder, poQuantity, poStatus) values
+	(1, 9, 2, null),
+    (2, 10, 2, null),
+    (3, 11, 2, null);
+    
+insert into productStorage (storageLocation, quantity) values
+	('Rio de Janeiro', 1000),
+    ('Rio de Janeiro', 500),
+    ('São Paulo', 10),
+    ('São Paulo', 100),
+    ('São Paulo', 10),
+    ('Brasília', 60);
+    
+insert into storageLocation (idLproduct, idLstorage, location) values
+	(1, 2, 'RJ'),
+    (2, 6, 'GO');
+    
+insert into supplier (SocialName, CNPJ, contact) values
+	('Almeida e filhos', 123456789123456, '21985474'),
+    ('Eletrônicos Silva', 854519649143457, '21985484'),
+    ('Eletrônicos Valma', 934567893934659, '22485481');
+    
+select * from supplier;
+
+insert into productSupplier (idPsSupplier, idPsProduct, quantity) values
+	(1, 1, 500),
+    (1, 2, 400),
+    (2, 4, 633),
+    (3, 3, 5);
+    
+
+insert into seller (SocialName, AbstName, CNPJ, CPF, location, contact)
+		values('Tech Eletronics', null, 123456789456321, null, 'Flores', 1258745986),
+			('Botique Luiz', null, null, 123456783, 'São Paul', 2154789658),
+            ('Kids World', null, 444456789456321, null, 'Rio de Janeiro', 1145789568);
+
+insert into productSeller (idPseller, idPproduct, prodQuantity) values
+	(1, 1, 80),
+    (2, 2, 10);
+    
+-- Queries
+
+-- Qtde de clientes
+select count(*) from client;
+
+-- 2- Pedidos feitos
+select * from client c, orders o where c.idClient = idOrderClient;
+
+select * from orders;
+select * from client c inner join orders o on c.idClient = o.idOrderClient
+			inner join productOrder p on p.idPOorder = o.idOrder;
